@@ -1,4 +1,4 @@
-# Is minimalism a meme?
+#Is minimalism a meme?
 
 Nowadays, we see a lot of people going for the *minimalism* meme, having a bare minimum setup on their computers but then asking some stupid questions lik "How do I install a patch on dwm?". Fortunately, this is not the case for everyone and there are still people who really took the right essence out of it. Some people think that the minimalism is just about having the less features possible on your programs and they probably just make their everyday life a lot harder because of that.
 
@@ -9,3 +9,5 @@ Years ago I was using Windows as my everyday OS. I tried Ubuntu in a virtual mac
 After the i3 wm, I tried bspwm, awesome and dwm, everyone with its pros and cons. But there was something in dwm that really took my attention and I started using it regularly. What I really like is that it comes with the bare minimum to work as a tiling wm, with the possibility to patch it with just what you want, and doesn't have some useless extra features that I never used in the other wms. Moreover, it is written in C in less than 2000 lines of code, it requires some time to read it but after that you can change it to perfectly fit your needs.
 
 This example took more than I expected but what I want to say is that *minimalism</i> is something that you achieve with time, and the way you go for it certainly differs from mine and from everyone else's. And more important, it is about finding a tradeoff which best fits your needs rather than finding one which goes as low as possible. It also depends on the way you use your computer and the programs you daily use. So, stop going minimal if you don't know what you do and especially if it makes your life harder.
+
+;tags: linux
