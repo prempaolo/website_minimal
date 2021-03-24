@@ -5,6 +5,13 @@
 <link>http://localhost/blog</link>
 <description>blog</description>
 <item>
+<title># Minimal</title>
+<link>http://localhost/blog/test.md.html</link>
+<guid>http://localhost/blog/test.md.html</guid>
+<pubDate>Wed, 24 Mar 2021 14:46:47 +0100</pubDate>
+<description>minimal</description>
+</item>
+<item>
 <title># Is minimalism a meme?</title>
 <link>http://localhost/blog/minimalism_meme.md.html</link>
 <guid>http://localhost/blog/minimalism_meme.md.html</guid>
