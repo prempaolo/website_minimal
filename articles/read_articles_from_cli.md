@@ -1,5 +1,5 @@
-<h1>Read your articles from CLI and zathura</h1>
-<p>
+Read your articles from CLI and zathura
+
 	<a href="https://newsboat.org/">Newsboat</a> is a great tool to manage your rss feeds from the command line. However, it just displays the content of a feed and, most of the time, this is just a minimal part of the entire article. I didn't like to open the browser any time I wanted to read the full article and I started to look for some way to solve this issue. There is a tool made by Mozilla and called <a href="https://github.com/mozilla/readability">readability</a>, which parses the html of an article and extracts only the useful informations. I tried to combine it with <a href="https://pandoc.org/">pandoc</a>, a very useful tool to convert file formats using latex and other engines, and the result was awesome. Here is a video showing the final result:
 </p>
 <img src="/img/blog/newsboat/article.gif" class="center"/>

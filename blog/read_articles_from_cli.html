@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><h1>Read your articles from CLI and zathura</h1></title>
+		<link rel="stylesheet" href="../data/style.css">
+	</head>
+	<body>
+<h1><h1>Read your articles from CLI and zathura</h1></h1><p>
+&lt;p&gt;
+	&lt;a href="https://newsboat.org/"&gt;Newsboat&lt;/a&gt; is a great tool to manage your rss feeds from the command line. However, it just displays the content of a feed and, most of the time, this is just a minimal part of the entire article. I didn't like to open the browser any time I wanted to read the full article and I started to look for some way to solve this issue. There is a tool made by Mozilla and called &lt;a href="https://github.com/mozilla/readability"&gt;readability&lt;/a&gt;, which parses the html of an article and extracts only the useful informations. I tried to combine it with &lt;a href="https://pandoc.org/"&gt;pandoc&lt;/a&gt;, a very useful tool to convert file formats using latex and other engines, and the result was awesome. Here is a video showing the final result:
+&lt;/p&gt;
+&lt;img src="/img/blog/newsboat/article.gif" class="center"/&gt;
+&lt;p&gt;
+	The video shows that only a minimal part of the entire article is shown within Newsboat, while the full text and images are retireved and then converted into a pdf in the background. The full script can be found &lt;a href="https://github.com/prempaolo/dotfiles/blob/master/.local/bin/tools/article_to_pdf"&gt;here&lt;/a&gt;, while in this article I will go through its main components. The first thing it does is to call the CLI wrapper of readability to extract all the useful information from the url passed as argument and store it in a temporary html file.
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;readability "" &gt; /home/paolo/Articles/tmp.html&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+	Then, it extracts the title of the article and formats it to be used as the name of the file
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;TITLE="$(head -1 /home/paolo/Articles/tmp.html | awk -F '1&gt;' '{ print $2 }' | sed 's#&amp;lt;/h##g; s/^ //g; s/ $//; s/ /_/g')"&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+	Finally, it converts the html to a pdf using Pandoc. I changed the engine used to convert it and the font for aesthetic preferences.
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pandoc --pdf-engine=pdflatex -V 'fontfamily:dejavu' "/home/paolo"/Articles/tmp.html -o "/home/paolo"/Articles/"<h1>Read your articles from CLI and zathura</h1>".pdf&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+	To make it work within Newsboat, I inserted the following line in its config file to define a macro:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;macro a set browser "article_to_pdf -o -u %u"; open-in-browser ; set browser "firefox -new-window %u"&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+	To call a macro within Newsboat, you simply press &lt;b&gt;,&lt;/b&gt; and then the key of the macro you want to execute, in this case &lt;b&gt;a&lt;/b&gt;. It simply tells Newsboat to open the url (defined in the variable &lt;b&gt;%u&lt;/b&gt;) using the command specified. After that, it resets the browser variable to the actual command that opens the browser. In this way, when I am using Newsboat and I want to read the full article, I simply press &lt;b&gt;, + a&lt;/b&gt; and the command to retrieve the article and convert it to pdf is executed.
+&lt;/p&gt;
+</p>
+<footer>
+    <hr/>
+    <a href=".">homepage</a>
+    <a href="./rss.xml">RSS</a>
+    <a href="./atom.xml">atom</a>
+    <br>
+    <p>All site content is in the Public Domain.</p>
+    <p><small>Powered by <a href="https://pedantic.software/git/blogit">blogit</a></small></p>
+</footer>
+</body></html>
