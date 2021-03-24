@@ -83,10 +83,9 @@ Let's start with the first command executed, i.e. <code>sxiv -o .*</code>. This 
 </p>
 <p>
 <img src="../data/pics/sxiv_name_output.gif" alt="Sxiv -o returns the name of the marked picture when quitted"/>
-&lt;!--&lt;img src="/img/blog/lf/sxiv_name_output.gif" alt="Sxiv -o returns the name of the marked picture when quitted" title="Sxiv -o returns the name of the marked picture when quitted"/&gt;--&gt;
 </p>
 <p>
-The name is then processed by the second command <code>lf -remote "send  select 'name-of-marked-file'"</code>. Lf has a running server in the background and differentiates the different instances using ids. With the previous command we are telling the server (using the <i>lf -remote</i>) to make the instance identified by <i></i> to select the file corresponding by the last string. By default, every instance of lf has its id stored into the <i></i> variable, accessible only inside the <i>lfrc</i> configuration file.
+The name is then processed by the second command <code>lf -remote "send  select 'name-of-marked-file'"</code>. Lf has a running server in the background and differentiates the different instances using ids. With the previous command we are telling the server (using the <i>lf -remote</i>) to make the instance identified by <i>&#36;id</i> to select the file corresponding by the last string. By default, every instance of lf has its id stored into the <i>&#36;id</i> variable, accessible only inside the <i>lfrc</i> configuration file.
 </p>
 <p>
 TL;DR In this way I can open sxiv with all the images in a folder by pressing <i>L</i> inside lf and then selecting on lf the marked image when quitting sxiv.
