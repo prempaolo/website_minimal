@@ -9,61 +9,87 @@
 When I first saw <a href="https://github.com/ranger/ranger">Ranger</a>, I immediately loved it. You can manage your files entirely from your command line in an awesome way. Here is a screenshot of its interface:
 </p>
 <p>
-<a href="../data/pics/ranger.png">Ranger</a>
+<img src="../data/pics/ranger.png" alt="Ranger"/>
 </p>
 <p>
 Its biggest flaw? Python!
 </p>
 <p>
-I started using it instead of the &lt;code&gt;cd&lt;/code&gt; command to navigate through my filesystem and I noticed an incredibly annoying delay of 1/2 seconds before it would open. This is the reason I started to look for some faster alternatives. I tried &lt;a href="https://github.com/vifm/vifm"&gt;vifm&lt;/a&gt; and &lt;a href="https://github.com/jarun/nnn"&gt;nnn&lt;/a&gt; but then I found &lt;a href="https://github.com/gokcehan/lf"&gt;lf&lt;/a&gt;, a file manager written in go. Not only it is faster than ranger, but it also looks very similar. Here is a screenshot of its interface:
-&lt;/p&gt;
-&lt;img src="/img/blog/lf/lf.png" alt="Lf" title="Lf"/&gt;
-&lt;p&gt;
-	By default, when you close lf with the &lt;i&gt;q&lt;/i&gt; key, it doesn't exit in the current directory, but it returns to the one where you ran it. Since I am	using it to navigate into my filesystem, I searched in their documentation how to	add this functionality. They provide a snippet of code that keeps track of the current directory and automatically &lt;code&gt;cd&lt;/code&gt; into that. Here is the snippet:
-&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;lfcd () {
-  tmp="$(mktemp)"
-  /bin/lf -last-dir-path="" "$@"
-  if [ -f "" ]; then
-      dir="$(cat "")"
-      rm -f ""
-      if [ -d "" ]; then
-          if [ "" != "$(pwd)" ]; then
-              cd ""
+I started using it instead of the <code>cd</code> command to navigate through my filesystem and I noticed an incredibly annoying delay of 1/2 seconds before it would open. This is the reason I started to look for some faster alternatives. I tried <a href="https://github.com/vifm/vifm">vifm</a> and <a href="https://github.com/jarun/nnn">nnn</a> but then I found <a href="https://github.com/gokcehan/lf">lf</a>, a file manager written in go. Not only it is faster than ranger, but it also looks very similar. Here is a screenshot of its interface:
+</p>
+<p>
+<img src="../data/pics/lf.png" alt="Lf"/>
+</p>
+<p>
+By default, when you close lf with the <i>q</i> key, it doesn't exit in the current directory, but it returns to the one where you ran it. Since I am	using it to navigate into my filesystem, I searched in their documentation how to	add this functionality. They provide a snippet of code that keeps track of the current directory and automatically <code>cd</code> into that. Here is the snippet:
+</p>
+<pre><code>
+lfcd () {
+  tmp="&#36;(mktemp)"
+  /bin/lf -last-dir-path="&#36;tmp" "&#36;@"
+  if [ -f "&#36;tmp" ]; then
+      dir="&#36;(cat "&#36;tmp")"
+      rm -f "&#36;tmp"
+      if [ -d "&#36;dir" ]; then
+          if [ "&#36;dir" != "&#36;(pwd)" ]; then
+              cd "&#36;dir"
           fi
       fi
   fi
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/p&gt;
-	Therefore, I created a new file, called &lt;i&gt;lfcd&lt;/i&gt; and I sourced it in my &lt;code&gt;.zshrc&lt;/code&gt; (if you use bash, source it in you &lt;code&gt;.bashrc&lt;/code&gt;):
-&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;source "/path/to/my/lfcd/file/lfcd.sh"&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;
-	In this way I was able to navigate my filesystem only using lf. Nice! So, I was thinking, is there something that I can do with a GUI file manager that I cannot do with my current configuration of lf? And two things came to my mind:
-&lt;/p&gt;
-&lt;ul&gt;
-	&lt;li&gt;Drag and drop&lt;/li&gt;
-	&lt;li&gt;Manage pictures and photos&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;For the first thing I did a quick search on Google and found an awesome project called &lt;a href="https://github.com/mwh/dragon"&gt;dragon drag and drop&lt;/a&gt; that could create from the command line a simple window with the selected file/s to drag and drop. I immediately downloaded it and imlemented it into my configuration of lf adding the following snippet of code to the lfrc config file:
-&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# Open drag and drop with t
-map t -drag-and-drop -a -x  &amp;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;
-	In this way, using the &lt;i&gt;t&lt;/i&gt; key, I can create a window with all the selected files and easily drag and drop them into any applications that support this functionality.&lt;br&gt;
-	For the other task, i.e. managing photos and pictures, I thought at first that the most effective way to do that was to implement any sort of image preview within the terminal and within lf. Fortunately, I was wrong, the most simple and effective way was to use a program called &lt;a href="https://github.com/muennich/sxiv"&gt;sxiv&lt;/a&gt;. It's a simple image previewer that has a lot of potential, including custom scripts to execute on certain key combination. Maybe I will write another article only about that, for the moment I would just stick with the configuration with lf starting with an example.&lt;br&gt;
-	Let's say I have some pictures named with the time and date they are taken, like it is shown in the picture below:&lt;/p&gt;
-&lt;img src="/img/blog/lf/lf_pictures.png" alt="Pictures with annoying names" title="Pictures with annoying names"/&gt;
-&lt;p&gt;My first approach was closing lf, opening sxiv with all the pictures in the target folder, chose the one I wanted to edit/move and then remember the name to be sure I selected the right picture. This operation was much simpler using a GUI file manager where you just select the one you are interested in. I couldn't accept it and therefore, I informed myself on both lf and sxiv and after some tries I found the perfect combination, and this was achieved by adding the following line to my &lt;code&gt;lfrc&lt;/code&gt;:
-&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# Open all images in current folder in sxiv and select marked image
-map L  -remote "send  select '$(sxiv -o .*)'"&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;
-	Let's start with the first command executed, i.e. &lt;code&gt;sxiv -o .*&lt;/code&gt;. This command simply opens sxiv with the &lt;code&gt;-o&lt;/code&gt; option in the current folder with all the files it is able to process (images). The specified option is used to &lt;i&gt;"write list of all marked files to standard output when quitting"&lt;/i&gt;, as also mentioned in its man page. When using sxiv, you can mark an image by simply pressing the &lt;i&gt;m&lt;/i&gt; key. Then, when you quit sxiv, its name is printed in the standard output. An example is shonw in the gif below:&lt;/p&gt;
-&lt;img src="/img/blog/lf/sxiv_name_output.gif" alt="Sxiv -o returns the name of the marked picture when quitted" title="Sxiv -o returns the name of the marked picture when quitted"/&gt;
-&lt;/p&gt;The name is then processed by the second command &lt;code&gt;lf -remote "send  select 'name-of-marked-file'"&lt;/code&gt;. Lf has a running server in the background and differentiates the different instances using ids. With the previous command we are telling the server (using the &lt;code&gt;lf -remote&lt;/code&gt;) to make the instance identified by &lt;code&gt;&lt;/code&gt; to select the file corresponding by the last string. By default, every instance of lf has its id stored into the &lt;code&gt;&lt;/code&gt; variable, accessible only inside the &lt;code&gt;lfrc&lt;/code&gt; configuration file.&lt;br&gt;
-TL;DR In this way I can open sxiv with all the images in a folder by pressing &lt;i&gt;L&lt;/i&gt; inside lf and then selecting on lf the marked image when quitting sxiv.
-&lt;/p&gt;
+}
+</code></pre>
+<p>
+Therefore, I created a new file, called <i>lfcd</i> and I sourced it in my <i>.zshrc</i> (if you use bash, source it in you <i>.bashrc</i>):
+</p>
+<pre><code>
+source "/path/to/my/lfcd/file/lfcd.sh"
+</code></pre>
+<p>
+In this way I was able to navigate my filesystem only using lf. Nice! So, I was thinking, is there something that I can do with a GUI file manager that I cannot do with my current configuration of lf? And two things came to my mind:
+</p>
+
+<ul>
+<li>Drag and drop</li>
+<li>Manage pictures and photos</li>
+</ul>
+<p>
+    For the first thing I did a quick search on Google and found an awesome project called <a href="https://github.com/mwh/dragon">dragon drag and drop</a> that could create from the command line a simple window with the selected file/s to drag and drop. I immediately downloaded it and imlemented it into my configuration of lf adding the following snippet of code to the lfrc config file:
+</p>
+<pre><code>
+# Open drag and drop with t
+map t &#36;dragon-drag-and-drop -a -x &#36;fx &amp;
+</code></pre>
+<p>
+In this way, using the <i>t</i> key, I can create a window with all the selected files and easily drag and drop them into any applications that support this functionality.
+</p>
+<p>
+For the other task, i.e. managing photos and pictures, I thought at first that the most effective way to do that was to implement any sort of image preview within the terminal and within lf. Fortunately, I was wrong, the most simple and effective way was to use a program called <a href="https://github.com/muennich/sxiv">sxiv</a>. It's a simple image previewer that has a lot of potential, including custom scripts to execute on certain key combination. Maybe I will write another article only about that, for the moment I would just stick with the configuration with lf starting with an example.
+</p>
+<p>
+Let's say I have some pictures named with the time and date they are taken, like it is shown in the picture below:
+</p>
+<p>
+<img src="../data/pics/lf_pictures.png" alt="Pictures with annoying names"/>
+</p>
+<p>
+My first approach was closing lf, opening sxiv with all the pictures in the target folder, chose the one I wanted to edit/move and then remember the name to be sure I selected the right picture. This operation was much simpler using a GUI file manager where you just select the one you are interested in. I couldn't accept it and therefore, I informed myself on both lf and sxiv and after some tries I found the perfect combination, and this was achieved by adding the following line to my <code>lfrc</code>:
+</p>
+<pre><code>
+# Open all images in current folder in sxiv and select marked image
+map L &#36;lf -remote "send &#36;id select '&#36;(sxiv -o .*)'"
+</code></pre>
+<p>
+Let's start with the first command executed, i.e. <code>sxiv -o .*</code>. This command simply opens sxiv with the <code>-o</code> option in the current folder with all the files it is able to process (images). The specified option is used to <i>"write list of all marked files to standard output when quitting"</i>, as also mentioned in its man page. When using sxiv, you can mark an image by simply pressing the <i>m</i> key. Then, when you quit sxiv, its name is printed in the standard output. An example is shonw in the gif below:
+</p>
+<p>
+<img src="../data/pics/sxiv_name_output.gif" alt="Sxiv -o returns the name of the marked picture when quitted"/>
+&lt;!--&lt;img src="/img/blog/lf/sxiv_name_output.gif" alt="Sxiv -o returns the name of the marked picture when quitted" title="Sxiv -o returns the name of the marked picture when quitted"/&gt;--&gt;
+</p>
+<p>
+The name is then processed by the second command <code>lf -remote "send  select 'name-of-marked-file'"</code>. Lf has a running server in the background and differentiates the different instances using ids. With the previous command we are telling the server (using the <i>lf -remote</i>) to make the instance identified by <i></i> to select the file corresponding by the last string. By default, every instance of lf has its id stored into the <i></i> variable, accessible only inside the <i>lfrc</i> configuration file.
+</p>
+<p>
+TL;DR In this way I can open sxiv with all the images in a folder by pressing <i>L</i> inside lf and then selecting on lf the marked image when quitting sxiv.
 </p>
 <footer>
     <hr/>
