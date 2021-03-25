@@ -1,3 +1,4 @@
 BLOG_REMOTE:=/home/paolo/Projects/website/minimal
 BLOG_FEEDS:=rss atom
+BLOG_SRC:=src
 BLOG_FEED_MAX:=50
