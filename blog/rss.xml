@@ -5,6 +5,13 @@
 <link>http://localhost/blog</link>
 <description>blog</description>
 <item>
+<title></title>
+<link>http://localhost/blog/cooking.html</link>
+<guid>http://localhost/blog/cooking.html</guid>
+<pubDate>Thu, 25 Mar 2021 10:09:32 +0100</pubDate>
+<description></description>
+</item>
+<item>
 <title>Lf, the perfect terminal file manager</title>
 <link>http://localhost/blog/lf.md.html</link>
 <guid>http://localhost/blog/lf.md.html</guid>
