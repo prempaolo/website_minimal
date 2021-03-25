@@ -21,3 +21,5 @@ To make it work within Newsboat, I inserted the following line in its config fil
 macro a set browser "article_to_pdf -o -u %u"; open-in-browser ; set browser "firefox -new-window %u"
 ```
 To call a macro within Newsboat, you simply press **,** and then the key of the macro you want to execute, in this case **a**. It simply tells Newsboat to open the url (defined in the variable **%u**) using the command specified. After that, it resets the browser variable to the actual command that opens the browser. In this way, when I am using Newsboat and I want to read the full article, I simply press **, + a** and the command to retrieve the article and convert it to pdf is executed.
+
+;tags: linux

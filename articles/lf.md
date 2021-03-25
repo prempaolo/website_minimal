@@ -60,3 +60,5 @@ Let's start with the first command executed, i.e. `sxiv -o .*`. This command sim
 The name is then processed by the second command `lf -remote "send $id select 'name-of-marked-file'"`. Lf has a running server in the background and differentiates the different instances using ids. With the previous command we are telling the server (using the *lf -remote*) to make the instance identified by *\$id* to select the file corresponding by the last string. By default, every instance of lf has its id stored into the *\$id* variable, accessible only inside the *lfrc* configuration file.
 
 TL;DR In this way I can open sxiv with all the images in a folder by pressing *L* inside lf and then selecting on lf the marked image when quitting sxiv.
+
+;tags: linux

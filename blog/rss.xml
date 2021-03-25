@@ -23,7 +23,7 @@
 <link>http://localhost/blog/pizza_napoletana.md.html</link>
 <guid>http://localhost/blog/pizza_napoletana.md.html</guid>
 <pubDate>Thu, 25 Mar 2021 10:21:18 +0100</pubDate>
-<description># Ingredienti</description>
+<description>## Ingredienti</description>
 </item>
 <item>
 <title>Read your articles from CLI and zathura</title>
