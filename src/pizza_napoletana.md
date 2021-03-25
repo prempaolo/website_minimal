@@ -1,4 +1,4 @@
-Ricetta Pizza Napoletana
+# Ricetta Pizza Napoletana
 
 ## Ingredienti
 

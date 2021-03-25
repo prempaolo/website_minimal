@@ -2,80 +2,44 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">blog</title>
 <subtitle type="text">blog</subtitle>
-<updated>2021-03-25T10:33:22Z</updated>
+<updated>2021-03-25T10:37:07Z</updated>
 <link rel="alternate" type="text/html" href="http://localhost/blog"/>
-<id>http://localhost/blog/atom.xml</id>
+<id>http://localhost/blogatom.xml</id>
 <link rel="self" type="application/atom+xml" href="http://localhost/blog/atom.xml"/>
 <entry>
 <title type="text">Lf, the perfect terminal file manager</title>
-<link rel="alternate" type="text/html" href="http://localhost/blog/lf.md.html"/>
-<id>http://localhost/blog/lf.md.html</id>
-<published>2021-03-25T10:21:18Z</published>
-<updated>2021-03-25T10:30:43Z</updated>
+<link rel="alternate" type="text/html" href="http://localhost/bloglf.html"/>
+<id>http://localhost/bloglf.html</id>
+<published>2021-03-25T10:35:49Z</published>
+<updated>2021-03-25T10:35:49Z</updated>
 <author><name>prempaolo</name></author>
-<summary type="text">When I first saw [Ranger](https://github.com/ranger/ranger), I immediately loved it. You can manage your files entirely from your command line in an awesome way. Here is a screenshot of its interface:</summary>
+<summary type="html"><![CDATA[]]></summary>
 </entry>
 <entry>
 <title type="text">Is minimalism a meme?</title>
-<link rel="alternate" type="text/html" href="http://localhost/blog/minimalism_meme.md.html"/>
-<id>http://localhost/blog/minimalism_meme.md.html</id>
-<published>2021-03-25T10:21:18Z</published>
-<updated>2021-03-25T10:21:18Z</updated>
+<link rel="alternate" type="text/html" href="http://localhost/blogminimalism_meme.html"/>
+<id>http://localhost/blogminimalism_meme.html</id>
+<published>2021-03-25T10:35:49Z</published>
+<updated>2021-03-25T10:35:49Z</updated>
 <author><name>prempaolo</name></author>
-<summary type="text">Nowadays, we see a lot of people going for the *minimalism* meme, having a bare minimum setup on their computers but then asking some stupid questions lik "How do I install a patch on dwm?". Fortunately, this is not the case for everyone and there are still people who really took the right essence out of it. Some people think that the minimalism is just about having the less features possible on your programs and they probably just make their everyday life a lot harder because of that.</summary>
+<summary type="html"><![CDATA[]]></summary>
 </entry>
 <entry>
 <title type="text">Ricetta Pizza Napoletana</title>
-<link rel="alternate" type="text/html" href="http://localhost/blog/pizza_napoletana.md.html"/>
-<id>http://localhost/blog/pizza_napoletana.md.html</id>
-<published>2021-03-25T10:21:18Z</published>
-<updated>2021-03-25T10:33:20Z</updated>
+<link rel="alternate" type="text/html" href="http://localhost/blogpizza_napoletana.html"/>
+<id>http://localhost/blogpizza_napoletana.html</id>
+<published>2021-03-25T10:35:49Z</published>
+<updated>2021-03-25T10:35:49Z</updated>
 <author><name>prempaolo</name></author>
-<summary type="text">## Ingredienti</summary>
+<summary type="html"><![CDATA[]]></summary>
 </entry>
 <entry>
 <title type="text">Read your articles from CLI and zathura</title>
-<link rel="alternate" type="text/html" href="http://localhost/blog/read_articles_from_cli.md.html"/>
-<id>http://localhost/blog/read_articles_from_cli.md.html</id>
-<published>2021-03-25T10:21:18Z</published>
-<updated>2021-03-25T10:30:43Z</updated>
+<link rel="alternate" type="text/html" href="http://localhost/blogread_articles_from_cli.html"/>
+<id>http://localhost/blogread_articles_from_cli.html</id>
+<published>2021-03-25T10:35:49Z</published>
+<updated>2021-03-25T10:35:49Z</updated>
 <author><name>prempaolo</name></author>
-<summary type="text">[Newsboat](https://newsboat.org/) is a great tool to manage your rss feeds from the command line. However, it just displays the content of a feed and, most of the time, this is just a minimal part of the entire article. I didn't like to open the browser any time I wanted to read the full article and I started to look for some way to solve this issue. There is a tool made by Mozilla and called [readability](https://github.com/mozilla/readability), which parses the html of an article and extracts only the useful informations. I tried to combine it with [pandoc](https://pandoc.org/), a very useful tool to convert file formats using latex and other engines, and the result was awesome. Here is a video showing the final result:</summary>
-</entry>
-<entry>
-<title type="text"></title>
-<link rel="alternate" type="text/html" href="http://localhost/blog/1616587074.html"/>
-<id>http://localhost/blog/1616587074.html</id>
-<published>prempaolo</published>
-<updated></updated>
-<author><name></name></author>
-<summary type="text"></summary>
-</entry>
-<entry>
-<title type="text"></title>
-<link rel="alternate" type="text/html" href="http://localhost/blog/1616599701.html"/>
-<id>http://localhost/blog/1616599701.html</id>
-<published>prempaolo</published>
-<updated></updated>
-<author><name></name></author>
-<summary type="text"></summary>
-</entry>
-<entry>
-<title type="text"></title>
-<link rel="alternate" type="text/html" href="http://localhost/blog/1616599701.html"/>
-<id>http://localhost/blog/1616599701.html</id>
-<published>prempaolo</published>
-<updated></updated>
-<author><name></name></author>
-<summary type="text"></summary>
-</entry>
-<entry>
-<title type="text"></title>
-<link rel="alternate" type="text/html" href="http://localhost/blog/.html"/>
-<id>http://localhost/blog/.html</id>
-<published></published>
-<updated></updated>
-<author><name></name></author>
-<summary type="text"></summary>
+<summary type="html"><![CDATA[]]></summary>
 </entry>
 </feed>

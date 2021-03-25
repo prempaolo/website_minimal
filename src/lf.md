@@ -1,4 +1,4 @@
-Lf, the perfect terminal file manager
+# Lf, the perfect terminal file manager
 
 When I first saw [Ranger](https://github.com/ranger/ranger), I immediately loved it. You can manage your files entirely from your command line in an awesome way. Here is a screenshot of its interface:
 

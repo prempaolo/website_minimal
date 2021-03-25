@@ -1,4 +1,4 @@
-Is minimalism a meme?
+# Is minimalism a meme?
 
 Nowadays, we see a lot of people going for the *minimalism* meme, having a bare minimum setup on their computers but then asking some stupid questions lik "How do I install a patch on dwm?". Fortunately, this is not the case for everyone and there are still people who really took the right essence out of it. Some people think that the minimalism is just about having the less features possible on your programs and they probably just make their everyday life a lot harder because of that.
 
