@@ -5,32 +5,39 @@
 <link>http://localhost/blog</link>
 <description>blog</description>
 <item>
-<title></title>
-<link>http://localhost/blog/cooking.html</link>
-<guid>http://localhost/blog/cooking.html</guid>
-<pubDate>Thu, 25 Mar 2021 10:09:32 +0100</pubDate>
-<description></description>
-</item>
-<item>
 <title>Lf, the perfect terminal file manager</title>
 <link>http://localhost/blog/lf.md.html</link>
 <guid>http://localhost/blog/lf.md.html</guid>
-<pubDate>Wed, 24 Mar 2021 16:28:21 +0100</pubDate>
+<pubDate>Thu, 25 Mar 2021 10:21:18 +0100</pubDate>
 <description>When I first saw [Ranger](https://github.com/ranger/ranger), I immediately loved it. You can manage your files entirely from your command line in an awesome way. Here is a screenshot of its interface:</description>
-</item>
-<item>
-<title>Read your articles from CLI and zathura</title>
-<link>http://localhost/blog/read_articles_from_cli.md.html</link>
-<guid>http://localhost/blog/read_articles_from_cli.md.html</guid>
-<pubDate>Wed, 24 Mar 2021 16:28:21 +0100</pubDate>
-<description>[Newsboat](https://newsboat.org/) is a great tool to manage your rss feeds from the command line. However, it just displays the content of a feed and, most of the time, this is just a minimal part of the entire article. I didn't like to open the browser any time I wanted to read the full article and I started to look for some way to solve this issue. There is a tool made by Mozilla and called [readability](https://github.com/mozilla/readability), which parses the html of an article and extracts only the useful informations. I tried to combine it with [pandoc](https://pandoc.org/), a very useful tool to convert file formats using latex and other engines, and the result was awesome. Here is a video showing the final result:</description>
 </item>
 <item>
 <title>Is minimalism a meme?</title>
 <link>http://localhost/blog/minimalism_meme.md.html</link>
 <guid>http://localhost/blog/minimalism_meme.md.html</guid>
-<pubDate>Wed, 24 Mar 2021 12:57:54 +0100</pubDate>
+<pubDate>Thu, 25 Mar 2021 10:21:18 +0100</pubDate>
 <description>Nowadays, we see a lot of people going for the *minimalism* meme, having a bare minimum setup on their computers but then asking some stupid questions lik "How do I install a patch on dwm?". Fortunately, this is not the case for everyone and there are still people who really took the right essence out of it. Some people think that the minimalism is just about having the less features possible on your programs and they probably just make their everyday life a lot harder because of that.</description>
+</item>
+<item>
+<title>Ricetta Pizza Napoletana</title>
+<link>http://localhost/blog/pizza_napoletana.md.html</link>
+<guid>http://localhost/blog/pizza_napoletana.md.html</guid>
+<pubDate>Thu, 25 Mar 2021 10:21:18 +0100</pubDate>
+<description>Ingredienti</description>
+</item>
+<item>
+<title>Read your articles from CLI and zathura</title>
+<link>http://localhost/blog/read_articles_from_cli.md.html</link>
+<guid>http://localhost/blog/read_articles_from_cli.md.html</guid>
+<pubDate>Thu, 25 Mar 2021 10:21:18 +0100</pubDate>
+<description>[Newsboat](https://newsboat.org/) is a great tool to manage your rss feeds from the command line. However, it just displays the content of a feed and, most of the time, this is just a minimal part of the entire article. I didn't like to open the browser any time I wanted to read the full article and I started to look for some way to solve this issue. There is a tool made by Mozilla and called [readability](https://github.com/mozilla/readability), which parses the html of an article and extracts only the useful informations. I tried to combine it with [pandoc](https://pandoc.org/), a very useful tool to convert file formats using latex and other engines, and the result was awesome. Here is a video showing the final result:</description>
+</item>
+<item>
+<title></title>
+<link>http://localhost/blog/.html</link>
+<guid>http://localhost/blog/.html</guid>
+<pubDate></pubDate>
+<description></description>
 </item>
 </channel>
 </rss>
