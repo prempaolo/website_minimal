@@ -1,6 +1,6 @@
 # Chad minimal view
 
-Personal website.
+Personal website...
 
 ## Ricette
 
