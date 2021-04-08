@@ -4,7 +4,7 @@ When I first saw [Ranger](https://github.com/ranger/ranger), I immediately loved
 
 ![Ranger](../data/pics/ranger.png)
 
-Its biggest flaw? Python!
+Its biggest flaw? Python!!
 
 I started using it instead of the `cd` command to navigate through my filesystem and I noticed an incredibly annoying delay of 1/2 seconds before it would open. This is the reason I started to look for some faster alternatives. I tried [vifm](https://github.com/vifm/vifm) and [nnn](https://github.com/jarun/nnn) but then I found [lf](https://github.com/gokcehan/lf), a file manager written in go. Not only it is faster than ranger, but it also looks very similar. Here is a screenshot of its interface:
 
