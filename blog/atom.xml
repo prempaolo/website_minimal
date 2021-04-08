@@ -2,27 +2,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">blog</title>
 <subtitle type="text">blog</subtitle>
-<updated>2021-04-08T10:31:35Z</updated>
+<updated>2021-04-08T12:26:10Z</updated>
 <link rel="alternate" type="text/html" href="http://localhost/blog"/>
 <id>http://localhost/blogatom.xml</id>
 <link rel="self" type="application/atom+xml" href="http://localhost/blog/atom.xml"/>
-<entry>
-<title type="text">Test article</title>
-<link rel="alternate" type="text/html" href="http://localhost/blogtest.html"/>
-<id>http://localhost/blogtest.html</id>
-<published>2021-04-08T10:31:32Z</published>
-<updated>2021-04-08T10:31:32Z</updated>
-<author><name>prempaolo</name></author>
-<summary type="html"><![CDATA[<h1>Test article</h1>
-
-<p>Bla bla bla</p>]]></summary>
-</entry>
 <entry>
 <title type="text">Lf, the perfect terminal file manager</title>
 <link rel="alternate" type="text/html" href="http://localhost/bloglf.html"/>
 <id>http://localhost/bloglf.html</id>
 <published>2021-03-25T10:35:49Z</published>
-<updated>2021-03-25T10:41:15Z</updated>
+<updated>2021-04-08T12:26:05Z</updated>
 <author><name>prempaolo</name></author>
 <summary type="html"><![CDATA[<h1>Lf, the perfect terminal file manager</h1>
 
@@ -30,7 +19,7 @@
 
 <p><img src="../data/pics/ranger.png" alt="Ranger" /></p>
 
-<p>Its biggest flaw? Python!</p>
+<p>Its biggest flaw? Python!!</p>
 
 <p>I started using it instead of the <code>cd</code> command to navigate through my filesystem and I noticed an incredibly annoying delay of &frac12; seconds before it would open. This is the reason I started to look for some faster alternatives. I tried <a href="https://github.com/vifm/vifm">vifm</a> and <a href="https://github.com/jarun/nnn">nnn</a> but then I found <a href="https://github.com/gokcehan/lf">lf</a>, a file manager written in go. Not only it is faster than ranger, but it also looks very similar. Here is a screenshot of its interface:</p>
 

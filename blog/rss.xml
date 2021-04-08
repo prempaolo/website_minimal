@@ -5,15 +5,6 @@
 <link>http://localhost/blog</link>
 <description>blog</description>
 <item>
-<title>Test article</title>
-<link>http://localhost/blogtest.html</link>
-<guid>http://localhost/blogtest.html</guid>
-<pubDate>Thu, 08 Apr 2021 10:31:32 +0200</pubDate>
-<description><![CDATA[<h1>Test article</h1>
-
-<p>Bla bla bla</p>]]></description>
-</item>
-<item>
 <title>Lf, the perfect terminal file manager</title>
 <link>http://localhost/bloglf.html</link>
 <guid>http://localhost/bloglf.html</guid>
@@ -24,7 +15,7 @@
 
 <p><img src="../data/pics/ranger.png" alt="Ranger" /></p>
 
-<p>Its biggest flaw? Python!</p>
+<p>Its biggest flaw? Python!!</p>
 
 <p>I started using it instead of the <code>cd</code> command to navigate through my filesystem and I noticed an incredibly annoying delay of &frac12; seconds before it would open. This is the reason I started to look for some faster alternatives. I tried <a href="https://github.com/vifm/vifm">vifm</a> and <a href="https://github.com/jarun/nnn">nnn</a> but then I found <a href="https://github.com/gokcehan/lf">lf</a>, a file manager written in go. Not only it is faster than ranger, but it also looks very similar. Here is a screenshot of its interface:</p>
 
