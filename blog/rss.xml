@@ -5,6 +5,15 @@
 <link>http://localhost/blog</link>
 <description>blog</description>
 <item>
+<title>Test article</title>
+<link>http://localhost/blogtest.html</link>
+<guid>http://localhost/blogtest.html</guid>
+<pubDate>Thu, 08 Apr 2021 10:31:32 +0200</pubDate>
+<description><![CDATA[<h1>Test article</h1>
+
+<p>Bla bla bla</p>]]></description>
+</item>
+<item>
 <title>Lf, the perfect terminal file manager</title>
 <link>http://localhost/bloglf.html</link>
 <guid>http://localhost/bloglf.html</guid>
@@ -99,31 +108,6 @@ Let's start with the first command executed, i.e.</code>sxiv -o .</em><code>. Th
 <p>This example took more than I expected but what I want to say is that *minimalism</i> is something that you achieve with time, and the way you go for it certainly differs from mine and from everyone else&rsquo;s. And more important, it is about finding a tradeoff which best fits your needs rather than finding one which goes as low as possible. It also depends on the way you use your computer and the programs you daily use. So, stop going minimal if you don&rsquo;t know what you do and especially if it makes your life harder.</p>
 
 <p>;tags: linux</p>]]></description>
-</item>
-<item>
-<title>Ricetta Pizza Napoletana</title>
-<link>http://localhost/blogpizza_napoletana.html</link>
-<guid>http://localhost/blogpizza_napoletana.html</guid>
-<pubDate>Thu, 25 Mar 2021 10:35:49 +0100</pubDate>
-<description><![CDATA[<h1>Ricetta Pizza Napoletana</h1>
-
-<h2>Ingredienti</h2>
-
-<ul>
-<li>500gr farina (possibilmente Manitoba)</li>
-<li>350ml di acqua tiepida</li>
-<li>10gr di sale</li>
-<li>1.5gr di lievito fresco</li>
-</ul>
-
-
-<h2>Procedimento</h2>
-
-<p>Versa l'acqua in un recipiente e sciogli il lievito. Aggiungi metà della farina continuando a mescolare. Quando hai aggiunto metà farina aggiungi il sale e mescola per 2 minuti. Poi metti il resto della farina e continua a mescolare con un cucchiaio. Quando l'impasto ha preso forma, usare le mani mescolarlo sempre dentro la ciotola, prendendo i lembi esterni e piegandoli verso il centro. Continuare con questo procedimento per circa 10 minuti. Lasciare in frigo fino alla mattina successiva (meglio se fatto la sera l'impasto). La mattina seguente tirare fuori l'impasto dal frigo, stenderlo sul tavolo e a mano cercare di allungarlo il più possibile. Fatto questo procedimento, ripiegarlo, formare una pallina e rimetterlo in frigo fino a 5 ore prima di cuocerlo. Quando lo si toglie dal frigo, dividerlo in 4 palline e lasciarle su una superficie piana, coperte da delle ciotole.</p>
-
-<p>Scaldare la pietra in forno e&hellip;.</p>
-
-<p>;tags: ricette pizza</p>]]></description>
 </item>
 <item>
 <title>Read your articles from CLI and zathura</title>

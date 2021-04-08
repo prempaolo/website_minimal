@@ -2,10 +2,21 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">blog</title>
 <subtitle type="text">blog</subtitle>
-<updated>2021-04-07T22:30:12Z</updated>
+<updated>2021-04-08T10:31:35Z</updated>
 <link rel="alternate" type="text/html" href="http://localhost/blog"/>
 <id>http://localhost/blogatom.xml</id>
 <link rel="self" type="application/atom+xml" href="http://localhost/blog/atom.xml"/>
+<entry>
+<title type="text">Test article</title>
+<link rel="alternate" type="text/html" href="http://localhost/blogtest.html"/>
+<id>http://localhost/blogtest.html</id>
+<published>2021-04-08T10:31:32Z</published>
+<updated>2021-04-08T10:31:32Z</updated>
+<author><name>prempaolo</name></author>
+<summary type="html"><![CDATA[<h1>Test article</h1>
+
+<p>Bla bla bla</p>]]></summary>
+</entry>
 <entry>
 <title type="text">Lf, the perfect terminal file manager</title>
 <link rel="alternate" type="text/html" href="http://localhost/bloglf.html"/>
@@ -105,33 +116,6 @@ Let's start with the first command executed, i.e.</code>sxiv -o .</em><code>. Th
 <p>This example took more than I expected but what I want to say is that *minimalism</i> is something that you achieve with time, and the way you go for it certainly differs from mine and from everyone else&rsquo;s. And more important, it is about finding a tradeoff which best fits your needs rather than finding one which goes as low as possible. It also depends on the way you use your computer and the programs you daily use. So, stop going minimal if you don&rsquo;t know what you do and especially if it makes your life harder.</p>
 
 <p>;tags: linux</p>]]></summary>
-</entry>
-<entry>
-<title type="text">Ricetta Pizza Napoletana</title>
-<link rel="alternate" type="text/html" href="http://localhost/blogpizza_napoletana.html"/>
-<id>http://localhost/blogpizza_napoletana.html</id>
-<published>2021-03-25T10:35:49Z</published>
-<updated>2021-03-25T10:41:15Z</updated>
-<author><name>prempaolo</name></author>
-<summary type="html"><![CDATA[<h1>Ricetta Pizza Napoletana</h1>
-
-<h2>Ingredienti</h2>
-
-<ul>
-<li>500gr farina (possibilmente Manitoba)</li>
-<li>350ml di acqua tiepida</li>
-<li>10gr di sale</li>
-<li>1.5gr di lievito fresco</li>
-</ul>
-
-
-<h2>Procedimento</h2>
-
-<p>Versa l'acqua in un recipiente e sciogli il lievito. Aggiungi metà della farina continuando a mescolare. Quando hai aggiunto metà farina aggiungi il sale e mescola per 2 minuti. Poi metti il resto della farina e continua a mescolare con un cucchiaio. Quando l'impasto ha preso forma, usare le mani mescolarlo sempre dentro la ciotola, prendendo i lembi esterni e piegandoli verso il centro. Continuare con questo procedimento per circa 10 minuti. Lasciare in frigo fino alla mattina successiva (meglio se fatto la sera l'impasto). La mattina seguente tirare fuori l'impasto dal frigo, stenderlo sul tavolo e a mano cercare di allungarlo il più possibile. Fatto questo procedimento, ripiegarlo, formare una pallina e rimetterlo in frigo fino a 5 ore prima di cuocerlo. Quando lo si toglie dal frigo, dividerlo in 4 palline e lasciarle su una superficie piana, coperte da delle ciotole.</p>
-
-<p>Scaldare la pietra in forno e&hellip;.</p>
-
-<p>;tags: ricette pizza</p>]]></summary>
 </entry>
 <entry>
 <title type="text">Read your articles from CLI and zathura</title>
