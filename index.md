@@ -1,3 +1,7 @@
 # Chad minimal view
 
-Personal website. For recipes go [here](../../recipes/blog/index.html).
+Personal website
+
+## Ricette
+
+Per le ricette in italiano vai [qui](../../recipes/blog/index.html).
