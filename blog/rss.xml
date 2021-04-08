@@ -9,28 +9,152 @@
 <link>http://localhost/bloglf.html</link>
 <guid>http://localhost/bloglf.html</guid>
 <pubDate>Thu, 25 Mar 2021 10:35:49 +0100</pubDate>
-<description><![CDATA[]]></description>
+<description><![CDATA[<h1>Lf, the perfect terminal file manager</h1>
+
+<p>When I first saw <a href="https://github.com/ranger/ranger">Ranger</a>, I immediately loved it. You can manage your files entirely from your command line in an awesome way. Here is a screenshot of its interface:</p>
+
+<p><img src="../data/pics/ranger.png" alt="Ranger" /></p>
+
+<p>Its biggest flaw? Python!</p>
+
+<p>I started using it instead of the <code>cd</code> command to navigate through my filesystem and I noticed an incredibly annoying delay of &frac12; seconds before it would open. This is the reason I started to look for some faster alternatives. I tried <a href="https://github.com/vifm/vifm">vifm</a> and <a href="https://github.com/jarun/nnn">nnn</a> but then I found <a href="https://github.com/gokcehan/lf">lf</a>, a file manager written in go. Not only it is faster than ranger, but it also looks very similar. Here is a screenshot of its interface:</p>
+
+<p><img src="../data/pics/lf.png" alt="Lf" /></p>
+
+<p>By default, when you close lf with the <em>q</em> key, it doesn&rsquo;t exit in the current directory, but it returns to the one where you ran it. Since I am    using it to navigate into my filesystem, I searched in their documentation how to   add this functionality. They provide a snippet of code that keeps track of the current directory and automatically <code>cd</code> into that. Here is the snippet:
+<code>
+lfcd () {
+  tmp="$(mktemp)"
+  /bin/lf -last-dir-path="$tmp" "$@"
+  if [ -f "$tmp" ]; then
+      dir="$(cat "$tmp")"
+      rm -f "$tmp"
+      if [ -d "$dir" ]; then
+          if [ "$dir" != "$(pwd)" ]; then
+              cd "$dir"
+          fi
+      fi
+  fi
+}
+</code>
+Therefore, I created a new file, called <em>lfcd</em> and I sourced it in my <em>.zshrc</em> (if you use bash, source it in you <em>.bashrc</em>):
+<code>
+source "/path/to/my/lfcd/file/lfcd.sh"
+</code>
+In this way I was able to navigate my filesystem only using lf. Nice! So, I was thinking, is there something that I can do with a GUI file manager that I cannot do with my current configuration of lf? And two things came to my mind:</p>
+
+<ul>
+<li>Drag and drop</li>
+<li><p>Manage pictures and photos</p>
+
+<p>  For the first thing I did a quick search on Google and found an awesome project called <a href="https://github.com/mwh/dragon">dragon drag and drop</a> that could create from the command line a simple window with the selected file/s to drag and drop. I immediately downloaded it and imlemented it into my configuration of lf adding the following snippet of code to the lfrc config file:
+```</p>
+
+<h1>Open drag and drop with t</h1>
+
+<p>map t $dragon-drag-and-drop -a -x $fx &amp;
+```
+In this way, using the <em>t</em> key, I can create a window with all the selected files and easily drag and drop them into any applications that support this functionality.</p></li>
+</ul>
+
+
+<p>For the other task, i.e. managing photos and pictures, I thought at first that the most effective way to do that was to implement any sort of image preview within the terminal and within lf. Fortunately, I was wrong, the most simple and effective way was to use a program called <a href="https://github.com/muennich/sxiv">sxiv</a>. It&rsquo;s a simple image previewer that has a lot of potential, including custom scripts to execute on certain key combination. Maybe I will write another article only about that, for the moment I would just stick with the configuration with lf starting with an example.</p>
+
+<p>Let&rsquo;s say I have some pictures named with the time and date they are taken, like it is shown in the picture below:</p>
+
+<p><img src="../data/pics/lf_pictures.png" alt="Pictures with annoying names" /></p>
+
+<p>My first approach was closing lf, opening sxiv with all the pictures in the target folder, chose the one I wanted to edit/move and then remember the name to be sure I selected the right picture. This operation was much simpler using a GUI file manager where you just select the one you are interested in. I couldn&rsquo;t accept it and therefore, I informed myself on both lf and sxiv and after some tries I found the perfect combination, and this was achieved by adding the following line to my <code>lfrc</code>:
+```</p>
+
+<h1>Open all images in current folder in sxiv and select marked image</h1>
+
+<p>map L $lf -remote &ldquo;send $id select &lsquo;$(sxiv -o .<em>)&rsquo;&rdquo;
+<code>``
+Let's start with the first command executed, i.e.</code>sxiv -o .</em><code>. This command simply opens sxiv with the</code>-o` option in the current folder with all the files it is able to process (images). The specified option is used to <em>&ldquo;write list of all marked files to standard output when quitting&rdquo;</em>, as also mentioned in its man page. When using sxiv, you can mark an image by simply pressing the <em>m</em> key. Then, when you quit sxiv, its name is printed in the standard output. An example is shonw in the gif below:</p>
+
+<p><img src="../data/pics/sxiv_name_output.gif" alt="Sxiv -o returns the name of the marked picture when quitted" /></p>
+
+<p>The name is then processed by the second command <code>lf -remote "send $id select 'name-of-marked-file'"</code>. Lf has a running server in the background and differentiates the different instances using ids. With the previous command we are telling the server (using the <em>lf -remote</em>) to make the instance identified by <em>\$id</em> to select the file corresponding by the last string. By default, every instance of lf has its id stored into the <em>\$id</em> variable, accessible only inside the <em>lfrc</em> configuration file.</p>
+
+<p>TL;DR In this way I can open sxiv with all the images in a folder by pressing <em>L</em> inside lf and then selecting on lf the marked image when quitting sxiv.</p>
+
+<p>;tags: linux</p>]]></description>
 </item>
 <item>
 <title>Is minimalism a meme?</title>
 <link>http://localhost/blogminimalism_meme.html</link>
 <guid>http://localhost/blogminimalism_meme.html</guid>
 <pubDate>Thu, 25 Mar 2021 10:35:49 +0100</pubDate>
-<description><![CDATA[]]></description>
+<description><![CDATA[<h1>Is minimalism a meme?</h1>
+
+<p>Nowadays, we see a lot of people going for the <em>minimalism</em> meme, having a bare minimum setup on their computers but then asking some stupid questions lik &ldquo;How do I install a patch on dwm?&rdquo;. Fortunately, this is not the case for everyone and there are still people who really took the right essence out of it. Some people think that the minimalism is just about having the less features possible on your programs and they probably just make their everyday life a lot harder because of that.</p>
+
+<p>IMHO, minimalism is a kind of tradeoff between the essential features of a program and your personal user experience. This does not only apply on computers, but to the everyday life as well. You cannot go to the bare minimum if you are not prepared and don&rsquo;t know what you&rsquo;re doing. I will make an example with my journey into minimalism.</p>
+
+<p>Years ago I was using Windows as my everyday OS. I tried Ubuntu in a virtual machine and I liked it very much, but couldn&rsquo;t leave what I was used to. Then, for working purposes, I had to use a Mac and this started to change my use of the computer. I started using more and more the terminal, open source programs and I also installed a tiling window manager (I think it is called Chunkwm). I really loved the possibility to do (almost) everything with just some keyboard combinations and I wanted more of this. Therefore, I started to inform myself and realized there are a lot of tiling window managers for Linux and I took my Windows computer back and installed Ubuntu. I remember that I absolutely wanted to have the i3 wm with gaps but it was a pain in the ass to install it. So, I decided to try with Debian but it didn&rsquo;t go better. In that period of my life I was starting to watch videos about Linux made by <a href="https://lukesmith.xyz/">Luke Smith</a>, who had Arch linux installed on his computer. Since I had all of my stuff on my Mac, I decided to give it a try on my other laptop with Windows. It was really hard at the beginning but it was so satisfactory to install it that it totally paid off the time spent on it. I remember that some nights I couldn&rsquo;t fall asleep because I wanted to learn more and configure it as I wanted. This started my passion about Linux, open source software and the ability to make my laptop as I really want.</p>
+
+<p>After the i3 wm, I tried bspwm, awesome and dwm, everyone with its pros and cons. But there was something in dwm that really took my attention and I started using it regularly. What I really like is that it comes with the bare minimum to work as a tiling wm, with the possibility to patch it with just what you want, and doesn&rsquo;t have some useless extra features that I never used in the other wms. Moreover, it is written in C in less than 2000 lines of code, it requires some time to read it but after that you can change it to perfectly fit your needs.</p>
+
+<p>This example took more than I expected but what I want to say is that *minimalism</i> is something that you achieve with time, and the way you go for it certainly differs from mine and from everyone else&rsquo;s. And more important, it is about finding a tradeoff which best fits your needs rather than finding one which goes as low as possible. It also depends on the way you use your computer and the programs you daily use. So, stop going minimal if you don&rsquo;t know what you do and especially if it makes your life harder.</p>
+
+<p>;tags: linux</p>]]></description>
 </item>
 <item>
 <title>Ricetta Pizza Napoletana</title>
 <link>http://localhost/blogpizza_napoletana.html</link>
 <guid>http://localhost/blogpizza_napoletana.html</guid>
 <pubDate>Thu, 25 Mar 2021 10:35:49 +0100</pubDate>
-<description><![CDATA[]]></description>
+<description><![CDATA[<h1>Ricetta Pizza Napoletana</h1>
+
+<h2>Ingredienti</h2>
+
+<ul>
+<li>500gr farina (possibilmente Manitoba)</li>
+<li>350ml di acqua tiepida</li>
+<li>10gr di sale</li>
+<li>1.5gr di lievito fresco</li>
+</ul>
+
+
+<h2>Procedimento</h2>
+
+<p>Versa l'acqua in un recipiente e sciogli il lievito. Aggiungi metà della farina continuando a mescolare. Quando hai aggiunto metà farina aggiungi il sale e mescola per 2 minuti. Poi metti il resto della farina e continua a mescolare con un cucchiaio. Quando l'impasto ha preso forma, usare le mani mescolarlo sempre dentro la ciotola, prendendo i lembi esterni e piegandoli verso il centro. Continuare con questo procedimento per circa 10 minuti. Lasciare in frigo fino alla mattina successiva (meglio se fatto la sera l'impasto). La mattina seguente tirare fuori l'impasto dal frigo, stenderlo sul tavolo e a mano cercare di allungarlo il più possibile. Fatto questo procedimento, ripiegarlo, formare una pallina e rimetterlo in frigo fino a 5 ore prima di cuocerlo. Quando lo si toglie dal frigo, dividerlo in 4 palline e lasciarle su una superficie piana, coperte da delle ciotole.</p>
+
+<p>Scaldare la pietra in forno e&hellip;.</p>
+
+<p>;tags: ricette pizza</p>]]></description>
 </item>
 <item>
 <title>Read your articles from CLI and zathura</title>
 <link>http://localhost/blogread_articles_from_cli.html</link>
 <guid>http://localhost/blogread_articles_from_cli.html</guid>
 <pubDate>Thu, 25 Mar 2021 10:35:49 +0100</pubDate>
-<description><![CDATA[]]></description>
+<description><![CDATA[<h1>Read your articles from CLI and zathura</h1>
+
+<p><a href="https://newsboat.org/">Newsboat</a> is a great tool to manage your rss feeds from the command line. However, it just displays the content of a feed and, most of the time, this is just a minimal part of the entire article. I didn&rsquo;t like to open the browser any time I wanted to read the full article and I started to look for some way to solve this issue. There is a tool made by Mozilla and called <a href="https://github.com/mozilla/readability">readability</a>, which parses the html of an article and extracts only the useful informations. I tried to combine it with <a href="https://pandoc.org/">pandoc</a>, a very useful tool to convert file formats using latex and other engines, and the result was awesome. Here is a video showing the final result:</p>
+
+<p><img src="../data/pics/article.gif" alt="Article" /></p>
+
+<p>The video shows that only a minimal part of the entire article is shown within Newsboat, while the full text and images are retireved and then converted into a pdf in the background. The full script can be found <a href="https://github.com/prempaolo/dotfiles/blob/master/.local/bin/tools/article_to_pdf">here</a>, while in this article I will go through its main components. The first thing it does is to call the CLI wrapper of readability to extract all the useful information from the url passed as argument and store it in a temporary html file.
+<code>
+readability "$URL" &gt; $HOME/Articles/tmp.html
+</code>
+Then, it extracts the title of the article and formats it to be used as the name of the file
+<code>
+TITLE="$(head -1 $HOME/Articles/tmp.html | awk -F '1&gt;' '{ print $2 }' | sed 's#&amp;lt;/h##g; s/^ //g; s/ $//; s/ /_/g')"
+</code>
+Finally, it converts the html to a pdf using Pandoc. I changed the engine used to convert it and the font for aesthetic preferences.
+<code>
+pandoc --pdf-engine=pdflatex -V 'fontfamily:dejavu' "$HOME"/Articles/tmp.html -o "$HOME"/Articles/"$TITLE".pdf
+</code>
+To make it work within Newsboat, I inserted the following line in its config file to define a macro:
+<code>
+macro a set browser "article_to_pdf -o -u %u"; open-in-browser ; set browser "firefox -new-window %u"
+</code>
+To call a macro within Newsboat, you simply press <strong>,</strong> and then the key of the macro you want to execute, in this case <strong>a</strong>. It simply tells Newsboat to open the url (defined in the variable <strong>%u</strong>) using the command specified. After that, it resets the browser variable to the actual command that opens the browser. In this way, when I am using Newsboat and I want to read the full article, I simply press <strong>, + a</strong> and the command to retrieve the article and convert it to pdf is executed.</p>
+
+<p>;tags: linux</p>]]></description>
 </item>
 </channel>
 </rss>
