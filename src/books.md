@@ -1,6 +1,7 @@
 # Organize your books (or everything) with this simple script
 
 When I started having several books and documents on my computer I decided to create a simple script to navigate through them. At first I was dividing them into folders, but then folders became sub-folders and now it is growing bigger and bigger. Thus, I needed some faster way to find that particular document or book that I wanted to consult. I knew of the `fzf` program and decided to use it as a fuzzy finder for my files, here is the script:
+
 ```
 #!/bin/sh
 
@@ -16,10 +17,13 @@ if [ "$BOOK" ]; then
 fi
 cd "$WD"
 ```
+
 The first line stores the current working directory and then changes it to the one where I store my books and documents. With `find . | grep -e epub -e pdf -e html` I search for documents with *epub*, *pdf* or *html* extensions. The following commands is the interesting part of the program:
+
 ```
 awk -F"/" '{for (i=2; i<NF; i++) printf "\033[1;34m#" $i "\033[0m" " "; print $NF }'
 ```
+
 I decided to use the current structure of folders and sub-folders as searchable tags for my books. Therefore, the previous line of code splits the words in the path and prints them with a trailing character `#` and colored with blue. In this way it is easy to recognize which ones are the tags and which ones are the file titles, as shown below, where the output is passed to the `fzf` program:
 
 ![Books](../data/pics/books.png)

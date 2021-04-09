@@ -8,32 +8,29 @@
 <main>
 <h1>Organize your books (or everything) with this simple script</h1>
 
-<p>When I started having several books and documents on my computer I decided to create a simple script to navigate through them. At first I was dividing them into folders, but then folders became sub-folders and now it is growing bigger and bigger. Thus, I needed some faster way to find that particular document or book that I wanted to consult. I knew of the <code>fzf</code> program and decided to use it as a fuzzy finder for my files, here is the script:
-```</p>
+<p>When I started having several books and documents on my computer I decided to create a simple script to navigate through them. At first I was dividing them into folders, but then folders became sub-folders and now it is growing bigger and bigger. Thus, I needed some faster way to find that particular document or book that I wanted to consult. I knew of the <code>fzf</code> program and decided to use it as a fuzzy finder for my files, here is the script:</p>
 
-<h1>!/bin/sh</h1>
+<pre><code>#!/bin/sh
 
-<p>WD=&ldquo;$(pwd)&rdquo;
-cd &ldquo;$HOME/Books&rdquo;</p>
-
-<h1>Get all the books and use the directories and sub-directories as tags</h1>
-
-<p>BOOK=&ldquo;$(find . | grep -e epub -e pdf -e html | awk -F&rdquo;/&ldquo; &lsquo;{for (i=2; i&lt;NF; i++) printf &rdquo;\033[1;34m#&ldquo; $i &rdquo;\033[0m" &ldquo; &rdquo;; print $NF }&rsquo; | fzf &ndash;ansi)"</p>
-
-<h1>Get only the book name (the words not starting with the character #)</h1>
-
-<p>BOOK=&ldquo;$(echo &rdquo;$BOOK" | sed &rsquo;s/#[A-Za-z0-9]* //g')&ldquo;
-if [ &rdquo;$BOOK" ]; then
-    PATH=&ldquo;$(find . -name &rdquo;$BOOK")&ldquo;
-    /bin/nohup /bin/zathura &rdquo;$PATH" >/dev/null 2>&amp;1 &amp;
+WD="$(pwd)"
+cd "$HOME/Books"
+# Get all the books and use the directories and sub-directories as tags
+BOOK="$(find . | grep -e epub -e pdf -e html | awk -F"/" '{for (i=2; i&lt;NF; i++) printf "\033[1;34m#" $i "\033[0m" " "; print $NF }' | fzf --ansi)"
+# Get only the book name (the words not starting with the character #)
+BOOK="$(echo "$BOOK" | sed 's/#[A-Za-z0-9]* //g')"
+if [ "$BOOK" ]; then 
+    PATH="$(find . -name "$BOOK")"
+    /bin/nohup /bin/zathura "$PATH" &gt;/dev/null 2&gt;&amp;1 &amp;
 fi
-cd &ldquo;$WD&rdquo;
-<code>
-The first line stores the current working directory and then changes it to the one where I store my books and documents. With `find . | grep -e epub -e pdf -e html` I search for documents with *epub*, *pdf* or *html* extensions. The following commands is the interesting part of the program:
-</code>
-awk -F"/&ldquo; &lsquo;{for (i=2; i&lt;NF; i++) printf &rdquo;\033[1;34m#&ldquo; $i &rdquo;\033[0m" &ldquo; &rdquo;; print $NF }&rsquo;
-<code>``
-I decided to use the current structure of folders and sub-folders as searchable tags for my books. Therefore, the previous line of code splits the words in the path and prints them with a trailing character</code>#<code>and colored with blue. In this way it is easy to recognize which ones are the tags and which ones are the file titles, as shown below, where the output is passed to the</code>fzf` program:</p>
+cd "$WD"
+</code></pre>
+
+<p>The first line stores the current working directory and then changes it to the one where I store my books and documents. With <code>find . | grep -e epub -e pdf -e html</code> I search for documents with <em>epub</em>, <em>pdf</em> or <em>html</em> extensions. The following commands is the interesting part of the program:</p>
+
+<pre><code>awk -F"/" '{for (i=2; i&lt;NF; i++) printf "\033[1;34m#" $i "\033[0m" " "; print $NF }'
+</code></pre>
+
+<p>I decided to use the current structure of folders and sub-folders as searchable tags for my books. Therefore, the previous line of code splits the words in the path and prints them with a trailing character <code>#</code> and colored with blue. In this way it is easy to recognize which ones are the tags and which ones are the file titles, as shown below, where the output is passed to the <code>fzf</code> program:</p>
 
 <p><img src="../data/pics/books.png" alt="Books" /></p>
 

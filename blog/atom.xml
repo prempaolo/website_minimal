@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">blog</title>
 <subtitle type="text">blog</subtitle>
-<updated>2021-04-09T11:55:59Z</updated>
+<updated>2021-04-09T11:57:19Z</updated>
 <link rel="alternate" type="text/html" href="http://localhost/blog"/>
 <id>http://localhost/blogatom.xml</id>
 <link rel="self" type="application/atom+xml" href="http://localhost/blog/atom.xml"/>
@@ -15,8 +15,9 @@
 <author><name>prempaolo</name></author>
 <summary type="html"><![CDATA[<h1>Organize your books (or everything) with this simple script</h1>
 
-<p>When I started having several books and documents on my computer I decided to create a simple script to navigate through them. At first I was dividing them into folders, but then folders became sub-folders and now it is growing bigger and bigger. Thus, I needed some faster way to find that particular document or book that I wanted to consult. I knew of the <code>fzf</code> program and decided to use it as a fuzzy finder for my files, here is the script:
-```</p>
+<p>When I started having several books and documents on my computer I decided to create a simple script to navigate through them. At first I was dividing them into folders, but then folders became sub-folders and now it is growing bigger and bigger. Thus, I needed some faster way to find that particular document or book that I wanted to consult. I knew of the <code>fzf</code> program and decided to use it as a fuzzy finder for my files, here is the script:</p>
+
+<p>```</p>
 
 <h1>!/bin/sh</h1>
 
@@ -35,12 +36,15 @@ if [ &rdquo;$BOOK" ]; then
     /bin/nohup /bin/zathura &rdquo;$PATH" >/dev/null 2>&amp;1 &amp;
 fi
 cd &ldquo;$WD&rdquo;
-<code>
-The first line stores the current working directory and then changes it to the one where I store my books and documents. With `find . | grep -e epub -e pdf -e html` I search for documents with *epub*, *pdf* or *html* extensions. The following commands is the interesting part of the program:
-</code>
-awk -F"/&ldquo; &lsquo;{for (i=2; i&lt;NF; i++) printf &rdquo;\033[1;34m#&ldquo; $i &rdquo;\033[0m" &ldquo; &rdquo;; print $NF }&rsquo;
-<code>``
-I decided to use the current structure of folders and sub-folders as searchable tags for my books. Therefore, the previous line of code splits the words in the path and prints them with a trailing character</code>#<code>and colored with blue. In this way it is easy to recognize which ones are the tags and which ones are the file titles, as shown below, where the output is passed to the</code>fzf` program:</p>
+```</p>
+
+<p>The first line stores the current working directory and then changes it to the one where I store my books and documents. With <code>find . | grep -e epub -e pdf -e html</code> I search for documents with <em>epub</em>, <em>pdf</em> or <em>html</em> extensions. The following commands is the interesting part of the program:</p>
+
+<p><code>
+awk -F"/" '{for (i=2; i&lt;NF; i++) printf "\033[1;34m#" $i "\033[0m" " "; print $NF }'
+</code></p>
+
+<p>I decided to use the current structure of folders and sub-folders as searchable tags for my books. Therefore, the previous line of code splits the words in the path and prints them with a trailing character <code>#</code> and colored with blue. In this way it is easy to recognize which ones are the tags and which ones are the file titles, as shown below, where the output is passed to the <code>fzf</code> program:</p>
 
 <p><img src="../data/pics/books.png" alt="Books" /></p>
 
